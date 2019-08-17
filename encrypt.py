@@ -1,9 +1,10 @@
 #!/usr/bin/env python
 # coding: utf-8
 import base64
-import getpass
-import time
+import sys
 import logging
+from PyQt5 import QtWidgets
+import encryptui
 dfmt="%Y-%m-%d %H:%M:%S"
 fmt="%(asctime)s %(levelname)s : %(message)s"
 level=logging.INFO
@@ -16,24 +17,26 @@ with open('pwd.txt','wb') as f:
 print("Password Stored!")
 #time.sleep(5)
 '''
-while True:
-    a=input("input jiami or jiemi or quit:")
-    if a =='jiami':
-        aw=input("shu ru ming wen: ")
-        try:
-            s=base64.b64encode(aw.encode('utf-8')).decode('utf-8')
-        except Exception:
-            logging.warning("ming wen cuo le!")
-        print(s)
-        logging.info(s)
-    if a =='jiemi':
-        bw=input("shu ru mi wen: ")
-        try:
-            s=base64.b64decode(bw).decode('utf-8')
-        except Exception:
-            logging.warning("mi wen cuo le!")
-        print(s)
-        logging.info(s)
-    if a =='quit':
-        break
-    
+def ToEncry(aw):
+    try:
+        miwen=base64.b64encode(aw.encode('utf-8')).decode('utf-8')
+    except Exception:
+        logging.warning("ming wen cuo le!")
+
+def ToPlainText(bw):
+    try:
+        mingwen=base64.b64decode(bw).decode('utf-8')
+    except Exception:
+        logging.warning("mi wen cuo le!")
+
+class MyWidget(QtWidgets.QWidget,encryptui.Ui_Form):
+    def __init__(self,parent=None):
+        super(MyWidget,self).__init__(parent)
+        self.setupUi(self)
+
+if __name__ == "__main__":
+   app =  QtWidgets.QApplication(sys.argv)
+   mf=MyWidget()
+   mf.show()
+   sys.exit(app.exec_())
+
