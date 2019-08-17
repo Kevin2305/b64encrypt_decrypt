@@ -97,5 +97,38 @@
   </widget>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>bt_to_encrypt</sender>
+   <signal>clicked()</signal>
+   <receiver>plain_edit</receiver>
+   <slot>copy()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>374</x>
+     <y>91</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>378</x>
+     <y>144</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>bt_to_plain</sender>
+   <signal>clicked()</signal>
+   <receiver>encryped_edit</receiver>
+   <slot>cut()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>361</x>
+     <y>275</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>360</x>
+     <y>328</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

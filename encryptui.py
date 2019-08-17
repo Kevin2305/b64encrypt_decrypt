@@ -1,12 +1,19 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'b64encrypt.ui'
+# Form implementation generated from reading ui file '.\b64encrypt.ui'
 #
-# Created by: PyQt5 UI code generator 5.11.3
+# Created by: PyQt5 UI code generator 5.13.0
 #
 # WARNING! All changes made in this file will be lost!
 
+import base64
+import logging
+dfmt="%Y-%m-%d %H:%M:%S"
+fmt="%(asctime)s %(levelname)s : %(message)s"
+level=logging.WARN
+
 from PyQt5 import QtCore, QtGui, QtWidgets
+
 
 class Ui_Form(object):
     def setupUi(self, Form):
@@ -50,13 +57,38 @@ class Ui_Form(object):
         self.horizontalLayout_2.addWidget(self.bt_to_encrypt)
 
         self.retranslateUi(Form)
+        self.bt_to_encrypt.clicked.connect(self.ToEncry)
+        self.bt_to_plain.clicked.connect(self.ToPlainText)
         QtCore.QMetaObject.connectSlotsByName(Form)
+
+        logging.basicConfig(filename="log.log",level=level,format=fmt,datefmt=dfmt)
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Encrypt And Decrypt"))
+        Form.setWindowTitle(_translate("Form", "Form"))
         self.label_2.setText(_translate("Form", "Encrypted Text"))
         self.bt_to_plain.setText(_translate("Form", "To Plain Text"))
         self.label.setText(_translate("Form", "Plain Text"))
         self.bt_to_encrypt.setText(_translate("Form", "To Encrypted Text"))
 
+    def ToEncry(self):
+        try:
+            aw=None
+            aw=self.plain_edit.text()
+            if len(aw)>0:
+                miwen=base64.b64encode(aw.encode('utf-8')).decode('utf-8')
+                self.encryped_edit.setText(miwen)
+        except Exception as e:
+            logging.warning("encrypt cuo le!")
+            logging.warning(e)
+
+    def ToPlainText(self):
+        try:
+            bw=None
+            bw=self.encryped_edit.text()
+            if len(bw)>0:
+                mingwen=base64.b64decode(bw).decode('utf-8')
+                self.plain_edit.setText(mingwen)
+        except Exception as e:
+            logging.warning("decrypt cuo le!")
+            logging.warning(e)
