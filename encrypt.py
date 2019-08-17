@@ -36,7 +36,4 @@ while True:
         logging.info(s)
     if a =='quit':
         break
-
-#with open('pwd.txt','rb') as f:
-#    p=f.read()
-#print(base64.b64decode(p).decode('utf-8'))
+    
