@@ -8,7 +8,6 @@ import encryptui
 dfmt="%Y-%m-%d %H:%M:%S"
 fmt="%(asctime)s %(levelname)s : %(message)s"
 level=logging.WARN
-logging.basicConfig(filename="log.log",level=level,format=fmt,datefmt=dfmt)
 
 def ToEncry(aw):
     try:
@@ -28,8 +27,9 @@ class MyWidget(QtWidgets.QWidget,encryptui.Ui_Form):
         self.setupUi(self)
 
 if __name__ == "__main__":
-   app =  QtWidgets.QApplication(sys.argv)
-   mf=MyWidget()
-   mf.show()
-   sys.exit(app.exec_())
+    logging.basicConfig(filename="log.log",level=level,format=fmt,datefmt=dfmt)
+    app =  QtWidgets.QApplication(sys.argv)
+    mf=MyWidget()
+    mf.show()
+    sys.exit(app.exec_())
 
