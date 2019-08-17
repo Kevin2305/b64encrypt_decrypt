@@ -7,7 +7,7 @@ from PyQt5 import QtWidgets
 import encryptui
 dfmt="%Y-%m-%d %H:%M:%S"
 fmt="%(asctime)s %(levelname)s : %(message)s"
-level=logging.INFO
+level=logging.WARN
 logging.basicConfig(filename="log.log",level=level,format=fmt,datefmt=dfmt)
 
 def ToEncry(aw):

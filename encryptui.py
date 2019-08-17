@@ -54,7 +54,7 @@ class Ui_Form(object):
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Form"))
+        Form.setWindowTitle(_translate("Form", "Encrypt And Decrypt"))
         self.label_2.setText(_translate("Form", "Encrypted Text"))
         self.bt_to_plain.setText(_translate("Form", "To Plain Text"))
         self.label.setText(_translate("Form", "Plain Text"))
