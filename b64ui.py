@@ -65,11 +65,11 @@ class Ui_Form(object):
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Form"))
-        self.label_2.setText(_translate("Form", "Encrypted Text"))
+        Form.setWindowTitle(_translate("Form", "Base64 Convertor"))
+        self.label_2.setText(_translate("Form", "Base64 Text"))
         self.bt_to_plain.setText(_translate("Form", "To Plain Text"))
         self.label.setText(_translate("Form", "Plain Text"))
-        self.bt_to_encrypt.setText(_translate("Form", "To Encrypted Text"))
+        self.bt_to_encrypt.setText(_translate("Form", "To Base64 Text"))
 
     def ToEncry(self):
         try:
